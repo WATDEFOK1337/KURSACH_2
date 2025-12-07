@@ -1,0 +1,158 @@
+/* Фон страницы с лёгким затемнением */
+body {
+    background-image: url('../images/fon_glav.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    /* уменьшили, чтобы текст помещался */
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+.bg-overlay {
+    background: linear-gradient(180deg, rgba(236, 253, 245, 0.8), rgba(220, 249, 234, 0.7));
+    backdrop-filter: blur(2px);
+}
+
+/* Плавное появление заголовка */
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.float-in {
+    animation: floatIn 900ms ease-out forwards;
+}
+
+/* Карточки */
+.card-shadow {
+    box-shadow: 0 10px 20px rgba(6, 95, 70, 0.08), 0 4px 10px rgba(6, 95, 70, 0.04);
+}
+
+.cat-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    transform: translate(10px, -10px);
+}
+
+/* Анимация котиков: лёгкое покачивание */
+.cat-animate .cat-badge img {
+    animation: catFloat 3s ease-in-out infinite;
+}
+
+@keyframes catFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.product-img {
+    height: 0;
+    padding-bottom: 100%;
+    /* квадрат */
+    position: relative;
+}
+
+.product-img img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Кнопки */
+.btn-soft {
+    background: linear-gradient(180deg, rgba(34, 197, 94, 0.12), rgba(34, 197, 94, 0.06));
+    border: 1px solid rgba(34, 197, 94, 0.14);
+}
+
+/* Фон заголовка отзывов */
+#reviews-slider+div h2 {
+    position: relative;
+    z-index: 1;
+}
+
+/* Уже есть классы для card-shadow, скругления и полупрозрачности */
+
+
+#reviews-slider:active {
+    cursor: grabbing;
+}
+
+#reviews-container {
+    will-change: transform;
+    /* плавнее анимация при drag */
+}
+
+/* Плавное появление подсказок */
+header .group span {
+    transition: 0.3s;
+}
+
+.tooltip {
+    position: absolute;
+    top: 2.5rem;
+    /* немного ниже иконки */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    color: #065f46;
+    /* изумрудный оттенок */
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.group:hover .tooltip {
+    opacity: 1;
+    transform: translate(-50%, 2px);
+}
+
+.more-bouquets-btn {
+    background: linear-gradient(135deg, #6ee7b7, #34d399);
+    color: #065f46;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.more-bouquets-btn:hover {
+    background: linear-gradient(135deg, #34d399, #059669);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.more-bouquets-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}

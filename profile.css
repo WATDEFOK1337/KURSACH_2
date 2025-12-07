@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.block {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8fffa;
+    border-radius: 14px;
+    border: 2px solid #d1f2e8;
+}
+
+.block h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #1c7c54;
+}
+
+#address {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #b8e0d2;
+    margin-bottom: 10px;
+}
+
+#save-address {
+    padding: 10px 16px;
+    background: #1c7c54;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#save-address:hover {
+    background: #155f42;
+}
+
+/* Заказы */
+.orders li {
+    background: #ffffff;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border-left: 5px solid #1c7c54;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.order-id {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.status {
+    margin-top: 8px;
+    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    color: #fff;
+    display: inline-block;
+}
+
+.status.assembling { background: #3498db; }    /* собирается */
+.status.courier { background: #f1c40f; }       /* передано курьеру */
+.status.onway { background: #9b59b6; }         /* в пути */
+.status.delivered { background: #27ae60; }     /* доставлено */

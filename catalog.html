@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Каталог букетов | Цветочный рай</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Верхнее меню -->
+    <header class="w-full bg-emerald-50/70 shadow-md fixed top-0 left-0 z-50 fade-in">
+        <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+            <img src="images/logo.png" alt="Лого Цветочный Рай"
+                class="w-20 h-15 rounded-full object-cover shadow-lg border-4 border-white">
+            <a href="index.html" class="text-2xl font-bold text-emerald-700">Цветочный рай 🌸</a>
+            <a href="catalog.html" class="relative group cursor-pointer">
+                <div class="grid grid-cols-2 grid-rows-2 gap-1 w-6 h-6">
+                    <div class="bg-emerald-700 rounded-sm"></div>
+                    <div class="bg-emerald-700 rounded-sm"></div>
+                    <div class="bg-emerald-700 rounded-sm"></div>
+                    <div class="bg-emerald-700 rounded-sm"></div>
+                </div>
+                <span class="tooltip">Каталог</span>
+            </a>
+
+            <a href="account.html" id="profile-btn"
+                class="px-4 py-2 bg-emerald-600 text-white rounded-lg shadow hover:bg-emerald-700">
+                Личный кабинет
+            </a>
+            <a href="#" class="relative group ml-4 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-700" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.5 7h13L17 13M7 13l1.5-7h7L17 13" />
+                </svg>
+                <!-- В шапке -->
+                <div class="cart-container">
+                    <button id="cart-btn" class="cart-btn">
+                        Корзина (<span id="cart-count">0</span>)
+                    </button>
+                    <div id="cart-dropdown" class="cart-dropdown hidden">
+                        <ul id="cart-items"></ul>
+                        <p>Итого: <span id="cart-total">0</span> ₽</p>
+                        <button id="checkout-btn">Оформить заказ</button>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Основной блок -->
+    <main class="max-w-6xl mx-auto pt-28 px-4 fade-in">
+        <h1 class="text-center text-3xl text-emerald-800 mb-6">Каталог букетов</h1>
+
+        <section id="bouquets" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- 1 -->
+            <div class="product-card fade-in" data-name="Розы страсти" data-price="2990" data-type="roses"
+                data-desc="Яркие красные розы.">
+                <img src="images/rose1.jpg" alt="Розы страсти">
+                <h3>Розы страсти</h3>
+                <p><span class="old-price">3990 ₽</span> <span class="new-price">2990 ₽</span></p>
+                <button class="buy-btn open-modal">Подробнее</button>
+            </div>
+
+            <!-- 2 -->
+            <div class="product-card fade-in" data-name="Солнечные тюльпаны" data-price="1790" data-type="tulips"
+                data-desc="Жёлтые тюльпаны.">
+                <img src="images/tulip1.jpg" alt="Солнечные тюльпаны">
+                <h3>Солнечные тюльпаны</h3>
+                <p><span class="old-price">2490 ₽</span> <span class="new-price">1790 ₽</span></p>
+                <button class="buy-btn open-modal">Подробнее</button>
+            </div>
+
+            <!-- 3 -->
+            <div class="product-card fade-in" data-name="Летняя свежесть" data-price="1590" data-type="wild"
+                data-desc="Полевой букет с ромашками.">
+                <img src="images/wild1.jpg" alt="Летняя свежесть">
+                <h3>Летняя свежесть</h3>
+                <p><span class="old-price">2190 ₽</span> <span class="new-price">1590 ₽</span></p>
+                <button class="buy-btn open-modal">Подробнее</button>
+            </div>
+
+            <!-- 4 -->
+            <div class="product-card fade-in" data-name="Белоснежное вдохновение" data-price="4490" data-type="peony"
+                data-desc="Пионы белоснежные.">
+                <img src="images/peony1.jpg" alt="Белоснежное вдохновение">
+                <h3>Белоснежное вдохновение</h3>
+                <p><span class="old-price">5490 ₽</span> <span class="new-price">4490 ₽</span></p>
+                <button class="buy-btn open-modal">Подробнее</button>
+            </div>
+
+            <!-- 5 -->
+            <div class="product-card fade-in" data-name="Весеннее чудо" data-price="2490" data-type="tulips"
+                data-desc="Розовые тюльпаны.">
+                <img src="images/tulip2.jpg" alt="Весеннее чудо">
+                <h3>Весеннее чудо</h3>
+                <p><span class="old-price">2990 ₽</span> <span class="new-price">2490 ₽</span></p>
+                <button class="buy-btn open-modal">Подробнее</button>
+            </div>
+
+            <!-- 6 -->
+            <div class="product-card fade-in" data-name="Радость полей" data-price="1490" data-type="wild"
+                data-desc="Подсолнухи.">
+                <img src="images/sunflower1.jpg" alt="Радость полей">
+                <h3>Радость полей</h3>
+                <p><span class="old-price">1990 ₽</span> <span class="new-price">1490 ₽</span></p>
+                <button class="buy-btn open-modal">Подробнее</button>
+            </div>
+
+            <!-- 7 -->
+            <div class="product-card fade-in" data-name="Нежные розы" data-price="1890" data-type="roses"
+                data-desc="Белые розы.">
+                <img src="images/rose2.jpg" alt="Нежные розы">
+                <h3>Нежные розы</h3>
+                <p><span class="old-price">2490 ₽</span> <span class="new-price">1890 ₽</span></p>
+                <button class="buy-btn open-modal">Подробнее</button>
+            </div>
+
+            <!-- 8 -->
+            <div class="product-card fade-in" data-name="Белый полевой букет" data-price="2190" data-type="wild"
+                data-desc="Лаванда.">
+                <img src="images/lavender1.jpg" alt="Белый полевой букет">
+                <h3>Белый полевой букет</h3>
+                <p><span class="old-price">2790 ₽</span> <span class="new-price">2190 ₽</span></p>
+                <button class="buy-btn open-modal">Подробнее</button>
+            </div>
+
+            <!-- 9 -->
+            <div class="product-card fade-in" data-name="Розовые пионы" data-price="3290" data-type="peony"
+                data-desc="Пионы розовые.">
+                <img src="images/peony2.jpg" alt="Розовые пионы">
+                <h3>Розовые пионы</h3>
+                <p><span class="old-price">3990 ₽</span> <span class="new-price">3290 ₽</span></p>
+                <button class="buy-btn open-modal">Подробнее</button>
+            </div>
+
+            <!-- 10 -->
+            <div class="product-card fade-in" data-name="Желтые розы" data-price="1990" data-type="roses"
+                data-desc="Жёлтые розы.">
+                <img src="images/rose3.jpg" alt="Желтые розы">
+                <h3>Желтые розы</h3>
+                <p><span class="old-price">2490 ₽</span> <span class="new-price">1990 ₽</span></p>
+                <button class="buy-btn open-modal">Подробнее</button>
+            </div>
+
+            <!-- 11 -->
+            <div class="product-card fade-in" data-name="Малиновый букет" data-price="2790" data-type="roses"
+                data-desc="Малиновый букет.">
+                <img src="images/rose4.jpg" alt="Малиновый букет">
+                <h3>Малиновый букет</h3>
+                <p><span class="old-price">3490 ₽</span> <span class="new-price">2790 ₽</span></p>
+                <button class="buy-btn open-modal">Подробнее</button>
+            </div>
+
+            <!-- 12 -->
+            <div class="product-card fade-in" data-name="Осенний букет" data-price="2190" data-type="wild"
+                data-desc="Тёплый осенний букет.">
+                <img src="images/autumn1.jpg" alt="Осенний букет">
+                <h3>Осенний букет</h3>
+                <p><span class="old-price">2590 ₽</span> <span class="new-price">2190 ₽</span></p>
+                <button class="buy-btn open-modal">Подробнее</button>
+            </div>
+
+
+
+
+        </section>
+
+
+
+
+    </main>
+
+    <footer class="text-center text-emerald-800 py-6 fade-in">
+        <p>📞 <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+        <p>✉️ <a href="mailto:info@flowershop.ru">info@flowershop.ru</a></p>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <img id="modal-image" src="" alt="">
+            <p id="modal-desc"></p>
+            <p>Цена: <span id="modal-price"></span> ₽</p>
+            <button id="add-to-cart" class="buy-btn">Добавить в корзину</button>
+        </div>
+    </div>
+    <!-- Модалка для уведомления о добавлении товара -->
+    <div id="add-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="add-modal-text"></p>
+        </div>
+    </div>
+
+    <!-- Модалка для оформления заказа -->
+    <div id="checkout-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="checkout-modal-text"></p>
+            <button id="pay-btn" class="buy-btn">Оплатить</button>
+        </div>
+    </div>
+    <!-- Модалка уведомления об успешной оплате -->
+    <div id="paid-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="paid-modal-text"></p>
+        </div>
+    </div>
+
+    <script src="catalog.js"></script>
+</body>
+
+</html>

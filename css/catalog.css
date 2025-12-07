@@ -1,0 +1,276 @@
+/* Основной фон страницы */
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: url('images/fon_catalog.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #064e3b;
+    margin: 0;
+    padding: 0;
+}
+
+/* Контейнер main */
+main {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Плавная анимация появления */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Сетка карточек товаров */
+.product-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Заголовки карточек */
+.product-card h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #065f46;
+}
+
+/* Цены */
+.old-price {
+    text-decoration: line-through;
+    color: gray;
+    font-size: 12px;
+}
+
+.new-price {
+    color: #065f46;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+/* Кнопка "Подробнее" */
+.buy-btn {
+    background: linear-gradient(135deg, #6ee7b7, #34d399);
+    color: #064e3b;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.buy-btn:hover {
+    background: linear-gradient(135deg, #34d399, #10b981);
+    transform: scale(1.05);
+}
+
+/* CSS модалки */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#add-to-cart {
+    padding: 10px 20px;
+    background-color: #34d399;
+    /* зелёная кнопка */
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#add-to-cart:hover {
+    background-color: #059669;
+}
+
+.close:hover {
+    color: #000;
+}
+
+/* Кнопка "Добавить в корзину" */
+.add-to-cart {
+    background: #34d399;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.add-to-cart:hover {
+    background: #059669;
+}
+
+/* Управление галереей в модалке */
+.gallery-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.gallery-controls button {
+    background: #34d399;
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.gallery-controls button:hover {
+    background: #059669;
+}
+
+/* Стили фильтров */
+.filters select {
+    background-color: white;
+    border: 1px solid #34d399;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #064e3b;
+}
+
+/* Заголовок main */
+main h1 {
+    font-size: 18px;
+    color: #065f46;
+    margin-bottom: 15px;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #065f46;
+    font-size: 12px;
+}
+
+footer a {
+    color: #065f46;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.cart-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-btn {
+    background-color: rgba(52, 211, 153, 0.8);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cart-dropdown {
+    position: absolute;
+    right: 0;
+    top: 35px;
+    width: 250px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    z-index: 2000;
+}
+
+.cart-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.cart-dropdown li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.cart-dropdown img {
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+/* Модальные уведомления используют те же стили */
+#add-modal .modal-content,
+#checkout-modal .modal-content {
+    max-width: 400px;
+    max-height: auto;
+}

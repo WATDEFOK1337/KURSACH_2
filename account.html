@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+
+    <!-- Шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: linear-gradient(140deg, #d1fce3 0%, #b6f7e6 40%, #9ff3e9 70%, #8bf0ff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Анимация появления */
+        .fade-in {
+            animation: fadeIn 0.7s ease both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Улучшенные вкладки */
+        .tab-btn {
+            position: relative;
+            padding-bottom: 8px;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .tab-active {
+            color: #059669;
+        }
+
+        .tab-active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 60%;
+            height: 3px;
+            background: #059669;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        /* Поля ввода */
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-field {
+            transition: 0.3s;
+        }
+
+        .input-field:focus {
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+            border-color: #059669;
+        }
+
+        /* Логотип */
+        .logo {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Стеклянный эффект */
+        .glass {
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center px-4">
+    <header
+        class="w-full bg-emerald-600 text-white p-4 shadow-lg flex justify-between items-center fixed top-0 left-0 z-50">
+        <h1 class="text-xl font-bold tracking-widest">Профиль</h1>
+
+        <button id="logout-btn"
+            class="px-4 py-2 bg-red-500 hover:bg-red-600 rounded-lg shadow active:scale-95 transition">
+            Выйти
+        </button>
+    </header>
+    <div class="glass fade-in shadow-2xl rounded-2xl p-10 w-full max-w-md">
+
+
+        <h1 class="text-4xl font-bold text-center text-emerald-700 mb-8 drop-shadow-lg">
+            Личный кабинет
+        </h1>
+
+        <!-- Вкладки -->
+        <div class="flex justify-center mb-8 space-x-10">
+            <button id="login-tab" class="tab-btn text-emerald-700 tab-active">Войти</button>
+            <button id="register-tab" class="tab-btn text-gray-500">Регистрация</button>
+        </div>
+
+        <!-- Форма входа -->
+        <form id="login-form" class="space-y-6 fade-in">
+
+            <div class="input-wrapper">
+                <input type="text" id="login-username" placeholder="Ваш логин"
+                    class="input-field w-full p-3 border rounded-xl bg-white/70 shadow">
+            </div>
+
+            <div class="input-wrapper">
+                <input type="password" id="login-password" placeholder="Пароль"
+                    class="input-field w-full p-3 border rounded-xl bg-white/70 shadow">
+            </div>
+
+            <button type="button" id="login-btn"
+                class="w-full bg-emerald-600 text-white p-3 rounded-xl shadow-lg hover:bg-emerald-700 transition transform active:scale-95">
+                Войти
+            </button>
+        </form>
+
+        <!-- Форма регистрации -->
+        <form id="register-form" class="space-y-6 hidden fade-in">
+
+            <div class="input-wrapper">
+                <input type="email" id="reg-email" placeholder="E-mail"
+                    class="input-field w-full p-3 border rounded-xl bg-white/70 shadow">
+            </div>
+
+            <div class="input-wrapper">
+                <input type="text" id="reg-username" placeholder="Логин"
+                    class="input-field w-full p-3 border rounded-xl bg-white/70 shadow">
+            </div>
+
+            <div class="input-wrapper">
+                <input type="password" id="reg-password" placeholder="Пароль"
+                    class="input-field w-full p-3 border rounded-xl bg-white/70 shadow">
+            </div>
+
+            <button type="button" id="register-btn"
+                class="w-full bg-gradient-to-r from-emerald-600 to-teal-500 text-white p-3 rounded-xl shadow-xl hover:opacity-90 transform active:scale-95 transition">
+                Создать аккаунт
+            </button>
+        </form>
+
+        <p id="info-message" class="text-center text-lg font-semibold mt-6"></p>
+
+    </div>
+
+    <script src="account.js"></script>
+
+</body>
+
+</html>

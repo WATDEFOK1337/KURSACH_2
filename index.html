@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Цветочный Рай 🌸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Кастомные стили -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<header class="w-full bg-emerald-50/70 shadow-md fixed top-0 left-0 z-50">
+
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+
+        <!-- Название -->
+        <a href="index.html" class="flex items-center space-x-3">
+            <img src="images/logo.png" alt="Лого Цветочный Рай"
+                class="w-20 h-15 rounded-full object-cover shadow-lg border-4 border-white">
+            <span class="text-2xl font-bold text-emerald-700">Цветочный Рай</span>
+        </a>
+
+        <!-- Каталог -->
+        <a href="catalog.html" class="relative group cursor-pointer">
+            <div class="grid grid-cols-2 grid-rows-2 gap-1 w-6 h-6">
+                <div class="bg-emerald-700 rounded-sm"></div>
+                <div class="bg-emerald-700 rounded-sm"></div>
+                <div class="bg-emerald-700 rounded-sm"></div>
+                <div class="bg-emerald-700 rounded-sm"></div>
+            </div>
+            <span class="tooltip">Каталог</span>
+        </a>
+
+        <!-- Личный кабинет -->
+        <a href="account.html" id="profile-btn"
+            class="px-4 py-2 bg-emerald-600 text-white rounded-lg shadow hover:bg-emerald-700">
+            Личный кабинет
+        </a>
+
+        <!-- В шапке -->
+        <div class="cart-container">
+            <button id="cart-btn" class="px-4 py-2 bg-emerald-600 text-white rounded-xl shadow">
+                Корзина
+            </button>
+            <div id="cart-dropdown" class="cart-dropdown hidden">
+                <ul id="cart-items"></ul>
+                <p>Итого: <span id="cart-total">0</span> ₽</p>
+                <button id="checkout-btn">Оформить заказ</button>
+            </div>
+        </div>
+        </a>
+    </div>
+</header>
+<section class="mt-12"></section>
+
+<body class="min-h-screen flex flex-col items-center text-gray-800">
+
+    <div class="w-full min-h-screen flex flex-col items-center bg-overlay">
+
+        <!-- Заголовок -->
+        <header class="w-full max-w-6xl px-6 py-10 flex flex-col items-center">
+            <h1 class="text-5xl sm:text-6xl font-extrabold text-emerald-700 mb-2 float-in">Цветочный Рай <span
+                    class="text-3xl">🌸</span></h1>
+            <p class="text-lg text-emerald-800/80 max-w-2xl text-center float-in" style="animation-delay:120ms;">
+                Ваш любимый магазин цветов с доставкой прямо к двери.
+            </p>
+        </header>
+
+        <!-- Описание -->
+        <section class="w-full max-w-4xl px-6 text-center">
+            <div class="bg-white/70 rounded-2xl p-6 card-shadow">
+                <p class="text-emerald-800 leading-relaxed">
+                    Мы собираем красивые букеты с вниманием к каждой детали. Доставка свежих цветов гарантирована в
+                    любую точку города.
+                </p>
+            </div>
+        </section>
+
+        <!-- Заголовок раздела -->
+        <section class="w-full max-w-6xl px-6 mt-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-emerald-700 text-center mb-6 float-in">
+                Популярные предложения
+            </h2>
+
+            <!-- Товары -->
+            <main class="w-full max-w-6xl px-6 mt-10 mb-12">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+                    <!-- Карточка 1 -->
+                    <article class="bg-white rounded-3xl overflow-hidden card-shadow relative">
+                        <div class="product-img">
+                            <img src="images/rose.jpg" alt="Розы">
+                        </div>
+
+                        <div class="p-4 text-center">
+                            <h3 class="text-xl font-semibold text-emerald-700">Розы "Мятное утро"</h3>
+                            <p class="text-sm text-emerald-800/70 mt-2">
+                                Нежные кремово-розовые оттенки, обёрнуты в крафт.<br>
+                                <span class="line-through text-red-500">1200 ₽</span>
+                                <span class="text-green-700 font-semibold ml-2">900 ₽</span>
+                            </p>
+
+                            <div class="mt-4 flex justify-center gap-3">
+                                <button class="px-4 py-2 rounded-full text-sm btn-soft buy-btn"
+                                    data-name="Розы 'Мятное утро'" data-price="900" data-img="images/rose.jpg">
+                                    Купить
+                                </button>
+
+                                <button class="px-4 py-2 rounded-full text-sm border border-emerald-200 details-btn"
+                                    data-name="Розы 'Мятное утро'" data-price="900"
+                                    data-desc="Нежные кремово-розовые розы в крафтовой упаковке."
+                                    data-img="images/rose.jpg">
+                                    Подробнее
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 2 -->
+                    <article class="bg-white rounded-3xl overflow-hidden card-shadow relative">
+                        <div class="product-img">
+                            <img src="images/tulip.jpg" alt="Тюльпаны">
+                        </div>
+
+                        <div class="p-4 text-center">
+                            <h3 class="text-xl font-semibold text-emerald-700">Тюльпаны "Лесная поляна"</h3>
+                            <p class="text-sm text-emerald-800/70 mt-2">
+                                Яркая композиция тюльпанов для радости и уюта.<br>
+                                <span class="line-through text-red-500">900 ₽</span>
+                                <span class="text-green-700 font-semibold ml-2">700 ₽</span>
+                            </p>
+
+                            <div class="mt-4 flex justify-center gap-3">
+                                <button class="px-4 py-2 rounded-full text-sm btn-soft buy-btn"
+                                    data-name="Тюльпаны 'Лесная поляна'" data-price="700" data-img="images/tulip.jpg">
+                                    Купить
+                                </button>
+
+                                <button class="px-4 py-2 rounded-full text-sm border border-emerald-200 details-btn"
+                                    data-name="Тюльпаны 'Лесная поляна'" data-price="700"
+                                    data-desc="Яркий букет тюльпанов, идеальный для подарка."
+                                    data-img="images/tulip.jpg">
+                                    Подробнее
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 3 -->
+                    <article class="bg-white rounded-3xl overflow-hidden card-shadow relative">
+                        <div class="product-img">
+                            <img src="images/orchid.jpg" alt="Орхидеи">
+                        </div>
+
+                        <div class="p-4 text-center">
+                            <h3 class="text-xl font-semibold text-emerald-700">Орхидеи "Элеганс"</h3>
+                            <p class="text-sm text-emerald-800/70 mt-2">
+                                Изящные орхидеи для стильного интерьера и особых случаев.<br>
+                                <span class="line-through text-red-500">1500 ₽</span>
+                                <span class="text-green-700 font-semibold ml-2">1200 ₽</span>
+                            </p>
+
+                            <div class="mt-4 flex justify-center gap-3">
+                                <button class="px-4 py-2 rounded-full text-sm btn-soft buy-btn"
+                                    data-name="Орхидеи 'Элеганс'" data-price="1200" data-img="images/orchid.jpg">
+                                    Купить
+                                </button>
+
+                                <button class="px-4 py-2 rounded-full text-sm border border-emerald-200 details-btn"
+                                    data-name="Орхидеи 'Элеганс'" data-price="1200"
+                                    data-desc="Элегантная орхидея для стильного интерьера."
+                                    data-img="images/orchid.jpg">
+                                    Подробнее
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </main>
+        </section>
+
+        <div class="text-center my-10">
+            <a href="catalog.html" class="more-bouquets-btn">🌿 Другие букеты 🌿</a>
+        </div>
+
+    </div>
+
+    <!-- Отзывы -->
+    <section class="w-full max-w-6xl px-6 mb-12">
+        <!-- Заголовок с фоном -->
+        <div class="relative bg-emerald-50/70 rounded-2xl p-4 mb-6 shadow-inner">
+            <h2 class="text-3xl sm:text-4xl font-bold text-emerald-700 text-center float-in">
+                Последние отзывы покупателей
+            </h2>
+        </div>
+
+        <!-- Слайдер отзывов -->
+        <div class="relative overflow-hidden rounded-2xl shadow-lg bg-emerald-50/70 p-4" id="reviews-slider">
+            <div class="flex transition-transform duration-700 ease-in-out" id="reviews-container">
+                <!-- Слайды -->
+                <div class="flex-shrink-0 w-full p-4">
+                    <div class="bg-white/90 rounded-2xl p-6 card-shadow">
+                        <p class="text-emerald-800/90 mb-3">
+                            "Отличный магазин! Букет приехал вовремя, цветы свежие и красивые. Очень довольна!"
+                        </p>
+                        <div class="flex items-center gap-1 text-amber-400 text-lg">★★★★☆</div>
+                        <p class="text-sm text-emerald-700 mt-2 font-semibold">— Анна</p>
+                    </div>
+                </div>
+
+                <div class="flex-shrink-0 w-full p-4">
+                    <div class="bg-white/90 rounded-2xl p-6 card-shadow">
+                        <p class="text-emerald-800/90 mb-3">
+                            "Очень приятный сервис и красивое оформление букетов. Доставка без задержек."
+                        </p>
+                        <div class="flex items-center gap-1 text-amber-400 text-lg">★★★★★</div>
+                        <p class="text-sm text-emerald-700 mt-2 font-semibold">— Мария</p>
+                    </div>
+                </div>
+
+                <div class="flex-shrink-0 w-full p-4">
+                    <div class="bg-white/90 rounded-2xl p-6 card-shadow">
+                        <p class="text-emerald-800/90 mb-3">
+                            "Букеты очень свежие, красиво упакованы. Я покупаю здесь регулярно — рекомендую!"
+                        </p>
+                        <div class="flex items-center gap-1 text-amber-400 text-lg">★★★★★</div>
+                        <p class="text-sm text-emerald-700 mt-2 font-semibold">— Олег</p>
+                    </div>
+                </div>
+
+                <div class="flex-shrink-0 w-full p-4">
+                    <div class="bg-white/90 rounded-2xl p-6 card-shadow">
+                        <p class="text-emerald-800/90 mb-3">
+                            "Очень красивый магазин, хорошие цены и внимательный персонал. Заказ пришёл быстро."
+                        </p>
+                        <div class="flex items-center gap-1 text-amber-400 text-lg">★★★★★</div>
+                        <p class="text-sm text-emerald-700 mt-2 font-semibold">— Ирина</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Контакты -->
+    <footer class="w-full bg-emerald-50/80 py-8 border-t border-emerald-100">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-emerald-800">
+                <p class="font-semibold">Свяжитесь с нами</p>
+                <p>📍 г. Москва, ул. Цветочная, 12</p>
+                <p>📞 +7 (999) 123-45-67</p>
+                <p>✉️ info@flowerparadise.ru</p>
+            </div>
+            <div class="text-sm text-emerald-700/80">
+                <p>Работаем ежедневно: 09:00 — 20:00</p>
+                <p class="mt-2">Следите за нами в соцсетях и узнавайте о новых акциях 🌸</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById('reviews-container');
+            const slides = Array.from(container.children);
+            const total = slides.length;
+            let index = 1; // старт с первого настоящего слайда
+
+            // Клонируем первый и последний слайд
+            const firstClone = slides[0].cloneNode(true);
+            const lastClone = slides[slides.length - 1].cloneNode(true);
+            container.appendChild(firstClone);
+            container.insertBefore(lastClone, slides[0]);
+
+            const allSlides = Array.from(container.children);
+            container.style.transform = `translateX(-${index * 100}%)`;
+
+            let interval = setInterval(nextSlide, 4000);
+
+            function nextSlide() { moveSlide(1); }
+            function prevSlide() { moveSlide(-1); }
+
+            function moveSlide(dir) {
+                index += dir;
+                container.style.transition = 'transform 0.7s ease-in-out';
+                container.style.transform = `translateX(-${index * 100}%)`;
+
+                container.addEventListener('transitionend', handleTransitionEnd, { once: true });
+            }
+
+            function handleTransitionEnd() {
+                if (index === allSlides.length - 1) {
+                    container.style.transition = 'none';
+                    index = 1;
+                    container.style.transform = `translateX(-${index * 100}%)`;
+                } else if (index === 0) {
+                    container.style.transition = 'none';
+                    index = allSlides.length - 2;
+                    container.style.transform = `translateX(-${index * 100}%)`;
+                }
+            }
+
+            // Drag & Touch support
+            let startX = 0;
+            let isDragging = false;
+
+            container.addEventListener('mousedown', e => {
+                clearInterval(interval);
+                isDragging = true;
+                startX = e.pageX;
+                container.style.transition = 'none';
+            });
+
+            container.addEventListener('mousemove', e => {
+                if (!isDragging) return;
+                const dx = e.pageX - startX;
+                container.style.transform = `translateX(calc(-${index * 100}% + ${dx}px))`;
+            });
+
+            container.addEventListener('mouseup', e => {
+                if (!isDragging) return;
+                const dx = e.pageX - startX;
+                if (dx < -50) nextSlide();
+                else if (dx > 50) prevSlide();
+                else container.style.transform = `translateX(-${index * 100}%)`;
+                isDragging = false;
+                interval = setInterval(nextSlide, 4000);
+            });
+
+            container.addEventListener('mouseleave', e => {
+                if (isDragging) container.dispatchEvent(new Event('mouseup'));
+            });
+
+            container.addEventListener('touchstart', e => {
+                clearInterval(interval);
+                isDragging = true;
+                startX = e.touches[0].pageX;
+                container.style.transition = 'none';
+            });
+
+            container.addEventListener('touchmove', e => {
+                if (!isDragging) return;
+                const dx = e.touches[0].pageX - startX;
+                container.style.transform = `translateX(calc(-${index * 100}% + ${dx}px))`;
+            });
+
+            container.addEventListener('touchend', e => {
+                if (!isDragging) return;
+                const dx = e.changedTouches[0].pageX - startX;
+                if (dx < -50) nextSlide();
+                else if (dx > 50) prevSlide();
+                else container.style.transform = `translateX(-${index * 100}%)`;
+                isDragging = false;
+                interval = setInterval(nextSlide, 4000);
+            });
+        });
+
+    </script>
+    <!-- Модальное окно: товар добавлен -->
+    <div id="added-modal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center z-[999]">
+        <div class="bg-white p-6 rounded-2xl shadow-xl w-80 text-center">
+            <p id="added-text" class="text-lg font-semibold mb-4"></p>
+            <button onclick="closeAddedModal()" class="px-5 py-2 bg-emerald-600 text-white rounded-xl">OK</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно корзины -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center z-[999]">
+        <div class="bg-white p-6 rounded-2xl shadow-xl w-96">
+            <h2 class="text-2xl font-bold text-emerald-700 mb-4">Корзина</h2>
+
+            <ul id="cart-list" class="space-y-2 max-h-60 overflow-y-auto"></ul>
+
+            <p class="mt-4 text-xl font-semibold">Итого: <span id="cart-sum">0</span> ₽</p>
+
+            <div class="mt-5 flex justify-between">
+                <button onclick="closeCartModal()" class="px-4 py-2 bg-gray-300 rounded-xl">Закрыть</button>
+                <button onclick="openCheckoutModal()"
+                    class="px-4 py-2 bg-emerald-600 text-white rounded-xl">Оплатить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно оплаты -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center z-[999]">
+        <div class="bg-white p-6 rounded-2xl shadow-xl w-80 text-center">
+            <h2 class="text-2xl font-bold text-emerald-700 mb-3">Подтвердите оплату</h2>
+            <p id="checkout-text" class="text-lg mb-4"></p>
+
+            <div class="flex justify-between">
+                <button onclick="closeCheckoutModal()" class="px-4 py-2 bg-gray-300 rounded-xl">Назад</button>
+                <button onclick="payNow()" class="px-4 py-2 bg-emerald-600 text-white rounded-xl">Оплатить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно об успешной оплате -->
+    <div id="paid-modal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center z-[999]">
+        <div class="bg-white p-6 rounded-2xl shadow-xl w-80 text-center">
+            <h2 class="text-2xl font-bold text-emerald-700 mb-3">Спасибо за заказ!</h2>
+            <p id="paid-text" class="text-lg mb-4"></p>
+            <button onclick="closePaidModal()" class="px-5 py-2 bg-emerald-600 text-white rounded-xl">OK</button>
+        </div>
+    </div>
+    <script>
+        let cart = [];
+
+        // ==============================
+        // ОТКРЫТИЕ/ЗАКРЫТИЕ МОДАЛОК
+        // ==============================
+        function openAddedModal(text) {
+            document.getElementById("added-text").textContent = text;
+            document.getElementById("added-modal").classList.remove("hidden");
+        }
+        function closeAddedModal() {
+            document.getElementById("added-modal").classList.add("hidden");
+        }
+
+        function openCartModal() {
+            updateCartUI();
+            document.getElementById("cart-modal").classList.remove("hidden");
+        }
+        function closeCartModal() {
+            document.getElementById("cart-modal").classList.add("hidden");
+        }
+
+        function openCheckoutModal() {
+            const sum = cart.reduce((a, b) => a + b.price, 0);
+            document.getElementById("checkout-text").textContent =
+                `Вы собираетесь оплатить ${cart.length} товаров на сумму ${sum} ₽`;
+            document.getElementById("checkout-modal").classList.remove("hidden");
+        }
+        function closeCheckoutModal() {
+            document.getElementById("checkout-modal").classList.add("hidden");
+        }
+
+        function closePaidModal() {
+            document.getElementById("paid-modal").classList.add("hidden");
+        }
+
+        // ==============================
+        // ДОБАВЛЕНИЕ В КОРЗИНУ
+        // ==============================
+        document.querySelectorAll(".buy-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const product = {
+                    name: btn.dataset.name,
+                    price: Number(btn.dataset.price),
+                    img: btn.dataset.img
+                };
+
+                cart.push(product);
+                openAddedModal(`${product.name} добавлен(а) в корзину!`);
+            });
+        });
+
+        // ==============================
+        // КНОПКА КОРЗИНЫ В ШАПКЕ
+        // ==============================
+        document.getElementById("cart-btn").addEventListener("click", () => {
+            openCartModal();
+        });
+
+        // ==============================
+        // ОТРИСОВКА КОРЗИНЫ
+        // ==============================
+        function updateCartUI() {
+            const list = document.getElementById("cart-list");
+            const sum = document.getElementById("cart-sum");
+
+            list.innerHTML = "";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price;
+
+                const li = document.createElement("li");
+                li.className = "flex justify-between items-center p-2 bg-emerald-50 rounded-xl";
+
+                li.innerHTML = `
+            <div>
+                <p class="font-semibold">${item.name}</p>
+                <p class="text-emerald-700">${item.price} ₽</p>
+            </div>
+            <button class="text-red-500 text-xl" onclick="removeItem(${index})">✖</button>
+        `;
+
+                list.appendChild(li);
+            });
+
+            sum.textContent = total;
+        }
+
+        // Удаление товара
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        // ==============================
+        // ОПЛАТА
+        // ==============================
+        function payNow() {
+            const sum = cart.reduce((a, b) => a + b.price, 0);
+
+            document.getElementById("paid-text").textContent =
+                `Оплата прошла успешно! Сумма: ${sum} ₽`;
+
+            document.getElementById("checkout-modal").classList.add("hidden");
+            document.getElementById("paid-modal").classList.remove("hidden");
+
+            cart = [];
+        }
+    </script>
+</body>
+
+</html>
